@@ -77,12 +77,12 @@ app.listen(process.env.PORT, function () {
 });
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.privateemail.com",
+  host: "smtp.gmail.com",
   port: 465,
   secure: true,
   auth: {
-    user: "service@regimed.org",
-    pass: "Ori-regimed.3312!",
+    user: "service.regimed@gmail.com",
+    pass: "hgjf ssaq kbvo wxwc",
   },
 });
 
@@ -108,7 +108,7 @@ function generarTokenMedico(payload) {
 
 function enviarCorreoVerificacion(correo, token) {
   const mailOptions = {
-    from: "service@regimed.org",
+    from: "service@regimed.life",
     to: correo,
     subject: "Verifica tu dirección de correo electrónico",
     html: `

@@ -2,7 +2,7 @@
   "name": "regimed",
   "version": "1.0.0",
   "description": "",
-  "main": "inicio.php",
+  "main": "index.js",
   "directories": {
     "lib": "lib"
   },
