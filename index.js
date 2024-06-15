@@ -1066,8 +1066,10 @@ app.get("/verificar_doctor", (req, res) => {
             const insertarDoctor = `INSERT INTO doctor (doctor_id, nombre, cedula, especialidad, usuario_id) VALUES ('${decoded.doctor_id}', '${decoded.nombre}', '${decoded.cedula}', '${decoded.especialidad}', '${decoded.usuario_id}')`;
 
             conexion.query(insertarDoctor);
+            res.send("Doctor verificado");
+          } else {
+            res.send("Doctor ya verificado")
           }
-          res.send("Doctor verificado");
         }
       });
     }
@@ -1388,7 +1390,7 @@ function enviarCorreoVerificacionDoctor(nombre, cedula, especialidad, token) {
       <li><strong>Especialidad:</strong> ${especialidad}</li>
     </ul>
     <p>Por favor, revisen estos datos y procedan según corresponda.
-    <p><a href="https://regimed.org/verificar_doctor?token=${token}">Verifica aquí</a></p></p>
+    <p><a href="http://localhost:3000/verificar_doctor?token=${token}">Verifica aquí</a></p></p>
     <p>Atentamente, Regimed</p>
 `,
   };
@@ -1410,7 +1412,7 @@ app.post("/registroDoctor/:cedula/:especialidad/:captcha", async (req, res) => {
   const especialidad = req.params.especialidad;
 
   const verificacionCaptcha = await fetch(
-    `https://www.google.com/recaptcha/api/siteverify?secret=6LdjYrspAAAAAJn2Q6rIFphoWsw52t4cjRSv5w5p&response=${req.params.captcha}`,
+    `https://www.google.com/recaptcha/api/siteverify?secret=6LdxfbcpAAAAACfzTmYEvL4GGn1q7g2KkD3R64K5&response=${req.params.captcha}`,
     {
       method: "POST",
     }
@@ -1831,7 +1833,7 @@ app.post("/verificarCodigoTelefono/:inputCodigo", async (req, res) => {
 
 app.post("/verificarRegistro/:codigo/:captcha", async (req, res) => {
   const verificacionCaptcha = await fetch(
-    `https://www.google.com/recaptcha/api/siteverify?secret=6LdjYrspAAAAAJn2Q6rIFphoWsw52t4cjRSv5w5p&response=${req.params.captcha}`,
+    `https://www.google.com/recaptcha/api/siteverify?secret=6LdxfbcpAAAAACfzTmYEvL4GGn1q7g2KkD3R64K5&response=${req.params.captcha}`,
     {
       method: "POST",
     }
