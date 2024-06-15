@@ -1390,7 +1390,7 @@ function enviarCorreoVerificacionDoctor(nombre, cedula, especialidad, token) {
       <li><strong>Especialidad:</strong> ${especialidad}</li>
     </ul>
     <p>Por favor, revisen estos datos y procedan según corresponda.
-    <p><a href="http://localhost:3000/verificar_doctor?token=${token}">Verifica aquí</a></p></p>
+    <p><a href="http://regimed.life/verificar_doctor?token=${token}">Verifica aquí</a></p></p>
     <p>Atentamente, Regimed</p>
 `,
   };
